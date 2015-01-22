@@ -1,0 +1,44 @@
+@(name: String)(editForm: Form[models.Nutzer])
+@import helper._
+@main("News")(name){
+	<meta charset="utf-8">
+			  			<div class="col-md-2" id="leftCol">
+							<div class="well new"> 
+				              	<ul class="nav nav-stacked" id="sidebar">
+				                  <li><a class="linktext" href="/contact">Kontakt</a></li>
+				              	</ul>
+			  				</div>
+			      		</div>  
+			      		<div class="col-md-10">
+		                    <div class="panel panel-default">
+		                      	<div class="panel-body">
+											<h6>Profil bearbeiten:</h6>
+											@helper.form(action= routes.Application.editSubmit(), '_id -> "editForm"){	                                                
+												<div class="form-group fb">
+						   							@helper.inputText(editForm("nn"), '_label->"Nutzername", '_id->"un")
+											    </div>
+										       		</br>
+										       	<div class="form-group fb">
+										       		@helper.inputText(editForm("pw"), '_label->"Neues Passwort", '_id->"pw")
+										       	</div>
+										       		</br>
+										       	<div class="form-group fb">
+										       		@helper.inputText(editForm("name"), '_label->"Neuer Name", '_id->"name")
+										       	</div>
+										       		</br>
+										       	<div class="form-group fb">
+										       		@helper.inputText(editForm("hobby"), '_label->"Neues Hobby", '_id->"hobby")
+										       	</div>
+										       		</br>
+										       	<div class="form-group fb">
+										       		@helper.inputText(editForm("bild"), '_label->"Neues Bild", '_id->"bild")
+										       	</div>
+										       		</br>
+										       	<div class="actions fb">
+										       		<button type="submit" class="btn btn-inverse pull-right">Änderungen speichern</button>
+												</div>
+											} 				 											 
+								</div>
+							</div>
+		      			</div> 
+}

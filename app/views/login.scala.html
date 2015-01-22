@@ -1,0 +1,31 @@
+@(name: String)(loginForm: Form[models.Nutzer])
+@import helper._
+@main("login")(name) {
+	<meta charset="utf-8">
+		<div class="col-md-2" id="leftCol">
+			<div class="well new"> 
+              	<ul class="nav nav-stacked" id="sidebar">
+                  <li><a class="linktext" href="/signIn">SignIn</a></li>
+              	</ul>
+ 			</div>
+     	</div>  
+     		<div class="col-md-10">
+                <div class="panel panel-default">
+                     <div class="panel-body">
+                     	<h6>Login:</h6>
+						   @helper.form(action= routes.Application.loginSubmit(), '_id -> "loginForm"){
+						   		<div class="form-group fb">
+						   			@helper.inputText(loginForm("nn"), '_label->"Nutzername", '_id->"un")
+						       	</div>
+						       	</br>
+						       	<div class="form-group fb">
+						       		@helper.inputText(loginForm("pw"), '_label->"Passwort", '_id->"pw")
+						       	</div>
+						       	<div class="actions fb">
+						       		<button type="submit" class="btn btn-inverse pull-right">Login</button>
+								</div>
+							}
+					</div>
+				</div>
+			</div>
+}

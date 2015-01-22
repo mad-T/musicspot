@@ -1,0 +1,68 @@
+@(title:String)(user: String)(content: Html)
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>@title</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" type="text/css" href=@routes.Assets.at("stylesheets/jquery_1.10.4.css")>
+		<script type="text/javascript" src=@routes.Assets.at("jquery/jquery_1.10.2.js")></script>
+		<script type="text/javascript" src=@routes.Assets.at("jquery/jqueryui_1.10.4.js")></script>
+		<link rel="stylesheet" type="text/css" href=@routes.Assets.at("stylesheets/bootstrap.css")>
+
+		<link rel="stylesheet" type="text/css" href=@routes.Assets.at("stylesheets/teststyle.css")>
+		<script type="text/javascript" src=@routes.Assets.at("javascripts/bootstrap.js")></script>		
+		<script type="text/javascript" src=@routes.Assets.at("javascripts/script.js")></script>
+	</head>
+	<body class="background">
+		<header>
+			<img src="@routes.Assets.at("images/header2.png")" alt="banner" height="100%" width="100%">
+		  	<div id="topnav">
+				<nav class="navbar navbar-inverse">
+			        <div class="container">
+				          <div class="navbar-header">
+					            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+					              <span class="icon-bar"></span>
+					              <span class="icon-bar"></span>
+					              <span class="icon-bar"></span>
+					            </button>
+					            <a class="navbar-brand" href=@routes.Application.news><img src="@routes.Assets.at("images/logow.png")" alt="logo" height="25px"></a>
+				          </div>
+				          <div class="navbar-collapse collapse">
+					            <ul class="nav navbar-nav">
+					              <li><a href=@routes.Application.news>News</a></li>
+					              <li><a href=@routes.Application.music>Music</a></li>
+					              <li><a href=@routes.Application.account>Account</a></li>
+					              <li><a href=@routes.Application.login>Login</a></li>
+					              <li><a href=@routes.Application.logout>Logout</a></li>
+					              <li><a>Nutzer:</a></li>
+					              <li><a id="nutzername">@user</a></li>
+					            </ul> 	
+				          </div>
+			        </div>
+		      	</nav>
+	      	</div>
+		</header>
+		
+		<!-- Content -->
+		<div id="wrapper">
+			<div id ="content" class="container">
+				@content
+			</div>
+		
+			<footer id="footer">
+					<p class="footertext">
+						<a class="footertext" href=@routes.Application.news>Home</a>
+						<a class="footertext" href=@routes.Application.music>Music</a>
+						<a class="footertext" href=@routes.Application.account>Account</a>
+						<a class="footertext" href=@routes.Application.contact>Kontakt</a>
+						<a class="footertext"href=@routes.Application.about>About</a>
+					</p>
+			</footer>
+			
+		</div>
+		<!-- Content ENDE -->
+	</body>
+</html>

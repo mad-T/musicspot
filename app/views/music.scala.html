@@ -1,0 +1,36 @@
+@(name: String)(interpreten: java.util.ArrayList[models.Interpret])(lieder: java.util.ArrayList[models.Lied])(suchErg: String)
+@main("Music")(name){
+	<meta charset="utf-8">
+			  			<div class="col-md-2" id="leftCol">
+							<div class="well new"> 
+				              	<ul class="nav nav-stacked" id="sidebar">
+				                  <li><a class="linktext" id="buttonInterpret" href="/music">Interpret</a></li>
+								  <li><a class="linktext" id="buttonTitel" href="/titel">Titel</a></li>
+								    <li><input class="form-control" id="suche" type="text" onkeyup="suche()" placeholder="Suche"/></li>
+				    				<div class="link" value="Suchvorschläge:" id="out"></div>
+			  				</div>
+			      		</div>
+			      		<div class="col-md-10">
+			      			<!-- CONTENT Panel -->
+		                 	<div class="panel panel-default">
+		                    	<div class="panel-body" id ="wholePanel">	
+									<div class='row'>
+			      							@for(inter <- interpreten){
+			      								<div class='col-md-6'>
+			      									<div class='panel panel-default'>
+			      										<div class='panel-body'>
+			      											<p><h4>@inter.kName</h4></p>
+				      											<a href='' onclick='' >
+				      												<img src='@inter.bild' alt='interpret' height='100%' width='100%'>
+				      											</a>
+			      											<p>@inter.beschreibung</p>
+			      										</div>
+			      									</div>
+			      								</div>
+			      							}
+			      					</div>
+		              		<!-- CONTENT Panel ENDE -->
+			      				</div> 
+			      			</div>
+			      		</div>  
+}

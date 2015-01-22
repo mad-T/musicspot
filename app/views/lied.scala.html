@@ -1,0 +1,93 @@
+@(name: String)(lied: models.Lied)(kommentare: java.util.ArrayList[models.Kommentar])
+@main("Music")(name){
+	<meta charset="utf-8">
+			      		
+			  			<div class="col-md-2" id="leftCol">
+							<div class="well new"> 
+				              	<ul class="nav nav-stacked" id="sidebar">
+				                  	<li><a class="linktext" id="buttonInterpret" href="/music">Interpret</a></li>
+								  	<li><a class="linktext" id="buttonTitel" href="/titel">Titel</a></li>
+								    <li><input class="form-control" id="suche" type="text" onkeyup="suche()" placeholder="Suche"/></li>
+				    				<div class="link" value="Suchvorschläge:" id="out"></div>
+				    			</ul>
+			  				</div>
+			      		</div>
+
+			      		<div class="col-md-10">
+			      			<!-- CONTENT Panel -->
+		                 	<div class="panel panel-default">
+		                    	<div class="panel-body" id ="wholePanel">	
+									<!-- Row1  -->
+									<div class="row">
+										
+										<div class="col-md-6">
+											<div class="panel panel-default">
+												<div class="panel-body">
+													<div id="panelA">
+														<iframe width="100%" height="100%" src="@lied.video" frameborder="0" allowfullscreen></iframe>
+													</div>
+												</div>
+											</div>
+										</div>		
+										
+											
+										<div class="col-md-6">
+											<div class="panel panel-default">
+												<div class="panel-body">
+													<div id="panelB">
+														<div id="socket-messages">
+														@for(iter <- kommentare){
+															<p>@iter.text von @iter.verfasser </p>
+														}
+														</div>
+													</div>
+										 		</div>
+										 	</div>
+										</div>
+										
+									</div>
+									<!-- Row1 ENDE  -->
+										
+									<!-- Row2  -->
+									<div class="row">
+									
+										<div class="col-md-6">
+											<div class="panel panel-default">
+												<div class="panel-body" id="panelC">
+													<div id="songdetails">
+														<ul>
+															
+															<li>Interpret: @lied.interpret</li>
+															<li>Titel: @lied.titel</li>
+															<li>Dauer: @lied.dauer</li>
+															<li>Genre: @lied.genre</li>
+										
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+										
+										<div class="col-md-6">
+					                   		<div class="panel panel-default">
+												<div class="panel-body">
+													<div id="panelD">
+								                   		<div id="writecomment">
+															
+																<input class="fb" type="text" placeholder="Kommentar verfassen.." id="socket-input" />
+																<script type="text/javascript" src="@routes.Application.wsJs()"></script>
+																<input type="button" id="buttonKommi" value="Senden" onclick="sendMessage()"/>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										
+									</div>
+									<!-- Row2 ENDE -->
+								
+			                  	</div>
+		              		</div>
+		              		<!-- CONTENT Panel ENDE -->
+			      		</div> 	  
+}

@@ -1,0 +1,27 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+GET 	/news 						controllers.Application.news()
+GET		/music						controllers.Application.music()
+GET		/account					controllers.Application.account()
+GET		/about						controllers.Application.about()
+GET		/contact					controllers.Application.contact()
+GET    	/login                  	controllers.Application.login()
+POST   /loginSubmit                 controllers.Application.loginSubmit()
+GET		/logout						controllers.Application.logout()
+GET		/signIn						controllers.Application.signIn()
+POST	/signInSubmit				controllers.Application.signInSubmit()
+GET		/suche/						controllers.Application.suche(wert)
+GET		/edit						controllers.Application.edit()
+POST	/editSubmit					controllers.Application.editSubmit()
+GET		/interpret					controllers.Application.interpret()
+GET 	/assets.javascript.ws.js	controllers.Application.wsJs()
+GET 	/kommentar 					controllers.Application.kommentar()
+GET		/lied/						controllers.Application.lied(lied)
+GET		/titel						controllers.Application.titel()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

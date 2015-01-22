@@ -1,0 +1,99 @@
+body{
+	background-image: url('/assets/images/background4.jpg');
+	background-position: center top;
+}
+
+.link{
+	color: white;
+}
+
+.fb{
+	color: black;
+}
+
+.panel{
+	  color: white;
+}
+	
+.footer{
+	padding-bottom: 0;
+	padding-top: 20px;
+	margin-top: 50px;
+	background-color: black;
+}
+
+.footertext{
+	color: white;
+	word-spacing:5em;
+}
+
+#sidebar{
+ color: black;
+ 
+ }
+ 
+ html, body{
+    height: 100%;
+}
+
+
+#wrapper {
+    position: relative;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+}
+#content {
+
+}
+#footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: black;
+}
+
+/* You can change the height of the carousel by changing the height in the class below. It is set to 50% by default, but can be any height! */
+.carousel {
+height: 50%;
+}
+.item,
+.active,
+.carousel-inner {
+height: 100%;
+}
+/* Background images are set within the HTML using inline CSS, not here */
+.fill {
+width: 100%;
+height: 100%;
+background-position: center;
+-webkit-background-size: cover;
+background-size: cover;
+-o-background-size: cover;
+}
+
+.well.new {
+  min-height: 0px;
+  min-width: 100%;
+  padding: 0px;
+  margin-bottom: 50px;
+  color: #828282;
+  background-color: #2B2B2B;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 2px 1px rgba(0, 0, 0, .05);
+          box-shadow: inset 0 2px 1px rgba(0, 0, 0, .05);
+}
+
+.linktext {
+	color: #959595;
+}
+
+.nav.navbar-inverse{
+	padding: 0px;
+	margin-bottom: 0px;
+
+}
+
+
+

@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+
+.center-block {
+  display: block;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 100px;
+}
+
+.footer{
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	heigth: 60px;
+	background-color: black;
+	color: white;
+}
+
+.footertext{
+	color: white;
+	word-spacing:5em;
+	
+}
+
+
+#content{
+	position: fixed;
+	width:265px;
+	
+}
+

@@ -1,0 +1,49 @@
+	@(name: String)
+@main("contact")(name){
+	<meta charset="utf-8">
+						<div class="col-md-2" id="leftCol">
+							<div class="well new"> 
+				              	<ul class="nav nav-stacked" id="sidebar">
+				                  <li><a class="linktext" href="/contact">Kontakt</a></li>
+				                  <li><a class="linktext" id="buttonFAQ" href="#FAQ">FAQ</a></li>
+				              	</ul>
+			  				</div>
+			      		</div>  
+			      		<div class="col-md-10">
+			                    <div class="panel panel-default">
+			                      <div class="panel-body" id="contactPanel">
+			                      
+			                      	<script type="text/javascript">
+				                      	function CodeTyp() {
+				                      		var x = window.confirm("Dieses Formular geht an " + document.Testform.action);
+				                      	  	return x;
+				                      	}
+									</script>
+									
+											<h6>Kontaktformular</h6>                  
+											<form name="contact" action="http://de.selfhtml.org" onsubmit="return CodeTyp()">
+												<div class="form-group">   
+													<input type="text" name="name" id="name" value=""  class="form-control" placeholder="Name" />
+												</div>
+												<div class="form-group">	
+													<input type="text" name="email" id="email" value="" class="form-control" placeholder="Email" />
+												</div>
+												<div class="form-group">
+													<input type="text" rows="11" name="message" id="message" class="form-control" placeholder="message"></textarea>
+												</div>
+												<div class="form-group">
+													<select name="Kontaktart" class="form-control">
+														<option value="JA">Technische Probleme</option>
+														<option value="b">Fragen zu meinem Profil</option>
+														<option value="p">Verbesserungsvorschläge</option>
+													</select>
+												</div>		
+												<div class="actions">
+													<input type="submit" value="Nachricht abschicken" class="btn btn-inverse pull-right"/>
+												</div>	
+											</form>  				 											 
+			                    
+									</div>
+								</div>
+			      		</div> 
+}

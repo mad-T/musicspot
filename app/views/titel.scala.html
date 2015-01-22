@@ -1,0 +1,44 @@
+@(name: String)(lieder: java.util.ArrayList[models.Lied])(suchErg: String)
+@main("Music")(name){
+	<meta charset="utf-8">
+			  			<div class="col-md-2" id="leftCol">
+							<div class="well new"> 
+				              	<ul class="nav nav-stacked" id="sidebar">
+				                  <li><a class="linktext" id="buttonInterpret" href="/music">Interpret</a></li>
+								  <li><a class="linktext" id="buttonTitel" href="/titel">Titel</a></li>
+								    <li><input class="form-control" id="suche" type="text" onkeyup="suche()" placeholder="Suche"/></li>
+				    				<div class="link" value="Suchvorschläge:" id="out"></div>
+			  				</div>
+			      		</div>
+			      		<div class="col-md-10">
+			      			<!-- CONTENT Panel -->
+		                 	<div class="panel panel-default">
+		                    	
+			      				<div class='panel-body'>
+			      					<table class='table table-bordered'>
+			      						<tr>
+			      							<th>Titel</th>
+			      							<th>Interpret</th>
+			      							<th>Genre</th>
+			      							<th>Dauer</th>
+			      							<th>Play</th>
+			      						</tr>
+	      								@for(lied <- lieder){
+				      						<tr>
+				      							<td><a class='link' href='/lied/?lied=@lied.titel'>@lied.titel</a></td>
+				      							<td>@lied.interpret</td>
+				      							<td>@lied.genre</td>
+				      							<td>@lied.dauer</td>
+				      							<td><audio controls>
+				      								<source src='@lied.pfad' type='audio/mpeg'>
+				      								<source src='@lied.pfad' type='audio/ogg'>
+				      								<a href="@lied.pfad">Link</a>
+				      								</audio>
+				      							</td>
+				      						</tr>
+			      						}
+			      					</table>
+			      				</div>
+			      			</div>
+			      		</div>  
+}

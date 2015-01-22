@@ -1,0 +1,104 @@
+@(name: String)(nutzer: Nutzer)
+@main("account")(name){
+	<meta charset="utf-8">
+		
+			  			<div class="col-md-2" id="leftCol">
+							<div class="well new"> 
+				              	<ul class="nav nav-stacked" id="sidebar">
+				                  <li><a class="linktext" id="ButtonProfil" href="/account">Profil</a></li>
+								  <li><a class="linktext" id="ButtonUploads" href="#">Uploads</a></li>
+				              	</ul>
+			  				</div>
+			      		</div>  
+			      		
+			      		<script type="text/javascript">
+								$('#ButtonUploads').click(function(){
+								var panelA = 		"<div id='imgprofil'>"
+												+	"<img src='@nutzer.bild' alt='Profilbild'>"
+												+	"</div>"
+												+	"<div id='profiltext'>"
+												+	"<table class='table'>"
+												+	"<tr><td>Nickname:</td><td>@name</td></tr>"
+												+	"<tr><td>Hobby:</td><td><ul><li>@nutzer.hobby</li></ul></td></tr>"
+												+	"<tr><td>Name:</td>"
+												+	"<td>@nutzer.name</td></tr>"
+												+	"</table>"
+												+	"<a class='link' href='/edit'>Profil bearbeiten</a>"
+												+	"</div>"
+												
+								var panelB = 		"<h4>Uploadvorschlag?<br/> Immer her damit unsere Redaktion wird diesen bearbeiten und ggf. auf Musicspot hochladen</h4>"
+												+	"<form role='form' action='http://www.htwg-konstanz.de'>"
+												+	"<div class='form-group'>"
+												+	"<label for='titel'>Songtitel:</label>"
+												+	"<input class='form-control' type='text' name='titel' placeholder='Hier den Titel des Liedes eingeben'"
+												+	"</div>"
+												+	"<div class='form-group'>"
+												+	"<label for='interpret'>Interpret:</label>"
+												+	"<input class='form-control' type='text' name='interpret' placeholder='Hier den Interpret des Liedes eingeben'"
+												+	"</div>"
+												+	"<div class='form-group'>"
+												+	"<label for='genre'>Genre:</label>"
+												+	"<select class='form-control' name='Genre'><option value='hiphop'>HipHop</option><option value='raggea'>Raggea</option><option value='house'>House</option></select>"
+												+	"</div>"
+												+	"<div class='form-group'>"
+												+	"<label for='link'>Link:</label>"
+												+	"<input class='form-control' type='text' name='link' placeholder='Hier den Link zum Lied eingeben'"
+												+	"</div>"
+												+   "<div class='actions'>"
+												+ 	"<br/><input type='submit' value='Vorschlag abschicken' class='btn btn-inverse fb pull-right'/>"
+												+	"</div>"
+												+	"</form>"
+									$("#accPanelA").html($(panelA).fadeIn("slow"));
+									$("#accPanelB").html($(panelB).fadeIn("slow"));	
+								});
+						</script>
+		
+			      		<div class="col-md-10">
+			            
+			            	<!-- Row1  -->
+			            	<div class="row">
+			            	
+			                    <div class="panel panel-default">
+			                      	<div class="panel-body" id="accountPanel">
+			                      	
+			                      		<div class=col-md-6>
+			                      			<div class="panel panel-default">
+			                      				<div class="panel-body" id="accPanelA">
+							                    	<div id="imgprofil">
+														<img height="100%" width="100%" src="@nutzer.bild" alt="Profilbild">
+													</div>
+												</div>
+											</div>
+										</div>
+									
+										<div class="col-md-6" id="rightCol">
+											<div class="panel panel-default">
+			                      				<div class="panel-body" id="accPanelB">
+													<div id="profiltext">
+															<table class="table">
+																<tr>
+																	<td>Nickname:</td>
+																	<td>@name</td>
+																</tr>
+																<tr>
+																	<td>Hobby:</td>
+																	<td>@nutzer.hobby</td>
+																</tr>
+																<tr>
+																	<td>Name:</td>
+																	<td>@nutzer.name</td>
+																</tr>
+															</table>
+														<a class="link" href="@routes.Application.edit">Profil bearbeiten</a>
+													</div>
+												</div>
+											</div>	
+										</div>
+											
+			                  		</div>
+			              		</div>
+			              		
+			              	</div>
+			              	<!-- Row1  -->
+			      		</div> 
+}

@@ -1,0 +1,16 @@
+{
+	"FAQ":"Fragen",
+	"alle": [
+		{
+			"Frage":"Wie kann ich Musik hören?",
+			"Antwort":"Klick auf play du semibesonderer Mensch!"
+		},{
+			"Frage":"Was muss ich tun um Kommentare zu verfassen?",
+			"Antwort":"Du musst dich anmelden bzw. registrieren, nur dann werden Kommentare dauerhaft gespeichert."
+		},{
+			"Frage":"Wie kann man euch erreichen?",
+			"Antwort":"Im Footer findest du einen Button 'Kontakt'. Fülle einfach das Formular mit deinem Anliegen aus und schick es ab."
+		}
+	]
+}
+		

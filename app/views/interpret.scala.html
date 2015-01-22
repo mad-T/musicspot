@@ -1,0 +1,33 @@
+@(name: String)(interpreten: java.util.ArrayList[models.Interpret])
+@main("Music")(name){
+	<meta charset="utf-8">
+			  			<div class="col-md-2" id="leftCol">
+							<div class="well new"> 
+				              	<ul class="nav nav-stacked" id="sidebar">
+				                  <li><a class="linktext" id="buttonInterpret" href="#">Interpret</a></li>
+								  <li><a class="linktext" id="buttonTitel" href="#">Titel</a></li>
+				              	</ul>
+			  				</div>
+			      		</div>
+			      		<div class="col-md-10">
+			      			<!-- CONTENT Panel -->
+		                 	<div class="panel panel-default">
+		                    	<div class="panel-body" id ="holePanel">
+									
+									@for(inter <- interpreten){
+										<div class='row'>
+											<div class='col-md-6'>
+												<div class='panel panel-default'>
+														<div class='panel-body'>
+															<p>@inter.kName</p>
+														</div>
+												</div>
+											</div>
+										</div>
+									}										
+								
+			                  	</div>
+		              		</div>
+		              		<!-- CONTENT Panel ENDE -->
+			      		</div> 	  
+}

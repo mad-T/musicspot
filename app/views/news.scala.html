@@ -1,0 +1,30 @@
+@(name: String)
+@main("News")(name){
+	<meta charset="utf-8">
+				<meta charset="utf-8">
+			  			<div class="col-md-2" id="leftCol">
+							<div class="well new"> 
+				              	<ul class="nav nav-stacked" id="sidebar">
+				                  <li><a class="linktext" id="buttonNational" href="#">National</a></li>
+				                  <li><a class="linktext" id="buttonInternational" href="#">International</a></li>
+				              	</ul>
+			  				</div>
+			      		</div>  
+			      		<div class="col-md-10">
+			                    <div class="panel panel-default">
+			                      <div class="panel-body col-md-offset-2">
+				                      <div id="newstext">
+										<h3 id="interpretInfo">BenniB veröffentlicht neues Album! </h3>
+										<div id ="newsPic"> 
+											<img src="@routes.Assets.at("images/bb.jpg")" alt="Newsbild" height="75%" width="75%">
+										</div>
+										<br/>
+										<p>
+											 Am 10.10.1010 kommt der neue Sound :D
+										</p>
+									</div>
+			                    
+			                  </div>
+			              	</div>
+			      		</div> 
+}
