@@ -1,5 +1,5 @@
-	@(name: String)
-@main("contact")(name){
+@(name: String)
+@main("Contact")(name){
 	<meta charset="utf-8">
 						<div class="col-md-2" id="leftCol">
 							<div class="well new"> 
@@ -12,36 +12,26 @@
 			      		<div class="col-md-10">
 			                    <div class="panel panel-default">
 			                      <div class="panel-body" id="contactPanel">
-			                      
-			                      	<script type="text/javascript">
-				                      	function CodeTyp() {
-				                      		var x = window.confirm("Dieses Formular geht an " + document.Testform.action);
-				                      	  	return x;
-				                      	}
-									</script>
-									
-											<h6>Kontaktformular</h6>                  
-											<form name="contact" action="http://de.selfhtml.org" onsubmit="return CodeTyp()">
-												<div class="form-group">   
-													<input type="text" name="name" id="name" value=""  class="form-control" placeholder="Name" />
-												</div>
+			                      									
+											<h6>Kontaktformular</h6>
+											<form name="contact" method="post" action="/kontaktieren" enctype="multipart/form-data">
 												<div class="form-group">	
-													<input type="text" name="email" id="email" value="" class="form-control" placeholder="Email" />
+													<input type="text" name="email" id="email" class="form-control" placeholder="Email" />
 												</div>
 												<div class="form-group">
-													<input type="text" rows="11" name="message" id="message" class="form-control" placeholder="message"></textarea>
+													<textarea rows="10%" name="message" class="form-control" placeholder="Nachricht"></textarea>
 												</div>
 												<div class="form-group">
-													<select name="Kontaktart" class="form-control">
-														<option value="JA">Technische Probleme</option>
-														<option value="b">Fragen zu meinem Profil</option>
-														<option value="p">Verbesserungsvorschläge</option>
+													<select name ="art" class="form-control">
+														<option value="technisch">Technische Probleme</option>
+														<option value="profil">Fragen zu meinem Profil</option>
+														<option value="verbesserung">Verbesserungsvorschläge</option>
 													</select>
 												</div>		
 												<div class="actions">
 													<input type="submit" value="Nachricht abschicken" class="btn btn-inverse pull-right"/>
-												</div>	
-											</form>  				 											 
+												</div>
+											</form>						 
 			                    
 									</div>
 								</div>

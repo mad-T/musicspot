@@ -8,6 +8,7 @@ import views.html.*;
 import play.db.*;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.management.modelmbean.ModelMBeanAttributeInfo;
 
@@ -17,6 +18,45 @@ public class Application extends Controller {
 	final static Form<Nutzer> signInForm = Form.form(Nutzer.class);
 	final static Form<Nutzer> editForm = Form.form(Nutzer.class);
 
+	public static Result kontaktieren(){
+		String user = session("name");
+		if(user != null){
+		
+			DynamicForm request = Form.form().bindFromRequest();
+			
+			String email = request.get("email");
+			String message = request.get("message");
+			String art = request.get("art");
+			
+			System.out.println("Kontakt: "+user+" | "+email+" | "+message+" | "+art);
+			Model.getInstance().addKontakt(user, email, message, art, "neu");
+			return redirect("/account");
+		}else{
+			return redirect("/login");
+		}
+		
+	}
+	public static Result uploaden(){
+		String user = session("name");
+		if(user != null){
+		
+			DynamicForm request = Form.form().bindFromRequest();
+			
+			String titel = request.get("titel");
+			String interpret = request.get("interpret");
+			String link = request.get("link");
+			
+			System.out.println("Upload: "+titel+" | "+interpret+" | "+link);
+			
+			Model.getInstance().addUpload(titel, interpret, link, user, "neu");
+			
+			return redirect("/account");
+		}else{
+			return redirect("/login");
+		}
+	}
+	
+	
 	public static WebSocket<String> kommentar(){
 		return new WebSocket<String>(){
 			public void onReady(WebSocket.In<String> in, WebSocket.Out<String> out){
@@ -60,13 +100,21 @@ public class Application extends Controller {
 			user = "Gast";
 			return ok( interpret.render( user, Model.getInstance().getInterpreten() ));
 		}
-		
 	}
 	
 	public static Result logout(){
 		Model.getInstance().doLogout();
 		session().clear();
 		return redirect( "/news");
+	}
+	
+	public static Result removeKontakt(int kid){
+		Model.getInstance().deleteKontakt(kid);
+		return redirect( "/administration");
+	}
+	public static Result removeUpload(int uid){
+		Model.getInstance().deleteUpload(uid);
+		return redirect( "/administration");
 	}
 	
 	public static Result edit(){
@@ -92,15 +140,27 @@ public class Application extends Controller {
 	public static Result loginSubmit(){
 	    Form<Nutzer> loginFormVoll = loginForm.bindFromRequest();
 	    String user;
-	    
-	    if(Model.getInstance().checkLogin(loginFormVoll.get()) != "Gast"){
+	    String x = Model.getInstance().checkLogin(loginFormVoll.get());
+	    if( x != "Gast" ){
 	    	session("name", Model.getInstance().getNutzername());
 		    user = session("name");
-		    System.out.println("Login Session: " + user);
-	    	return ok( account.render( user, Model.getInstance().getNutzer(user) ));
+	    	if(user.equals("Admin")){
+			    return redirect("/administration");
+		    }
+	    	return ok( account.render( user, Model.getInstance().getNutzer(user) ));	
 	    }else{
 	    	return redirect("/login");
 	    }	    
+	}
+	
+	public static Result administration(){ 
+		String user = session("name");
+		if(user != null && user.equals("Admin")){
+			 return ok( administration.render( user, Model.getInstance().getKontakte(), Model.getInstance().getUploads() ) );
+		}else{
+			user = "Gast";
+			return ok( login.render( user, loginForm ));
+		}
 	}
 	
 	public static Result login(){ 

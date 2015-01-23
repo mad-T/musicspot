@@ -24,6 +24,72 @@ public class Model {
 	
 	private Connection con = null;
 	
+	public void addKontakt(String nutzer, String email, String nachricht, String art, String status){
+		PreparedStatement ps = null;
+		System.out.println("nutzer: " + nutzer + " email: " + email + " nachricht: " + nachricht );
+		if(nutzer != null && nutzer != "Gast" && nachricht != null){	
+			try{
+				con = DB.getConnection();
+				String s = "insert into kontakt(kontaktID, nutzer, email, nachricht, art, status) values ((select max(kontaktID)+1 from kontakt), ?, ?, ?, ?, ?);";
+				ps = con.prepareStatement(s);
+				ps.setString(1, nutzer);
+				ps.setString(2, email);
+				ps.setString(3, nachricht);
+				ps.setString(4, art);
+				ps.setString(5, status);
+				ps.executeUpdate();
+				System.out.println("Model Kontakt: "+nachricht );
+			}catch(SQLException e){
+				e.printStackTrace();
+				System.out.println("Fehler beim Einfügen des Kontaktformular von "+nutzer+" ");
+			}finally{
+				try{
+					if(ps != null){
+						ps.close();
+					}
+					if(con != null){
+						con.close();
+					}
+				}catch(SQLException ex){
+					ex.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	public void addUpload(String titel, String interpret, String link, String nutzer, String status){
+		PreparedStatement ps = null;
+		System.out.println("nutzer: " + nutzer + " titel: " + titel + " link: " + link );
+		if(nutzer != null && nutzer != "Gast" && link != null){	
+			try{
+				con = DB.getConnection();
+				String s = "insert into upload(uploadID, titel, interpret, link, nutzer, status) values ((select max(uploadID)+1 from upload), ?, ?, ?, ?, ?);";
+				ps = con.prepareStatement(s);
+				ps.setString(1, titel);
+				ps.setString(2, interpret);
+				ps.setString(3, link);
+				ps.setString(4, nutzer);
+				ps.setString(5, status);
+				ps.executeUpdate();
+				System.out.println("Model Upload: "+link );
+			}catch(SQLException e){
+				e.printStackTrace();
+				System.out.println("Fehler beim Einfügen des Uploadvorschlags von "+nutzer+" ");
+			}finally{
+				try{
+					if(ps != null){
+						ps.close();
+					}
+					if(con != null){
+						con.close();
+					}
+				}catch(SQLException ex){
+					ex.printStackTrace();
+				}
+			}
+		}
+	}
+	
 	public void addKommentar(String text, String verfasser, int lied){
 		PreparedStatement ps = null;
 		System.out.println("Kommi: " + text + " Verfasser: " + verfasser + " Lied: " + lied );
@@ -42,14 +108,75 @@ public class Model {
 				System.out.println("Fehler beim Einfügen des Kommentars von "+verfasser+" ");
 			}finally{
 				try{
-					ps.close();
-					con.close();
+					if(ps != null){
+						ps.close();
+					}
+					if(con != null){
+						con.close();
+					}
 				}catch(SQLException ex){
 					ex.printStackTrace();
 				}
 				
 			}
 		}
+	}
+	
+	public void deleteKontakt(int kid){
+		PreparedStatement stmt = null;
+		System.out.println("KONTAKTNUMMER model : " +kid);
+			try{
+					con = DB.getConnection();
+					String ss = "delete from kontakt where kontaktID = ?;" ;
+					stmt = con.prepareStatement(ss);
+					stmt.setInt(1, kid);
+					stmt.executeUpdate();
+					
+					System.out.println("gelöscht KontaktNr: " + kid + " ");
+				
+			}catch(SQLException e){
+				e.printStackTrace();
+				System.out.println("Fehler beim löschen von " + kid);
+			}finally{
+				try{
+					if(stmt != null){
+						stmt.close();
+					}
+					if(con != null){
+						con.close();
+					}
+				}catch(SQLException ex){
+					ex.printStackTrace();
+				}
+			}
+	}
+	public void deleteUpload(int uid){
+		PreparedStatement stmt = null;
+		System.out.println("UPLOADNUMMER model : " +uid);
+			try{
+					con = DB.getConnection();
+					String ss = "delete from upload where uploadID = ?;" ;
+					stmt = con.prepareStatement(ss);
+					stmt.setInt(1, uid);
+					stmt.executeUpdate();
+					
+					System.out.println("gelöscht UploadNr: " + uid);
+				
+			}catch(SQLException e){
+				e.printStackTrace();
+				System.out.println("Fehler beim löschen von " + uid);
+			}finally{
+				try{
+					if(stmt != null){
+						stmt.close();
+					}
+					if(con != null){
+						con.close();
+					}
+				}catch(SQLException ex){
+					ex.printStackTrace();
+				}
+			}
 	}
 	
 	public void editNutzer(Nutzer nu){
@@ -90,8 +217,8 @@ public class Model {
 		System.out.println("Model " + gesucht);
 		ArrayList<String> namen = new ArrayList<String>();
 		String erg = "";
-		for(int i = 0; i < this.getInterpreten().size(); i++){
-			namen.add(i, this.getInterpreten().get(i).kName);
+		for(int i = 0; i < this.getLieder().size(); i++){
+			namen.add(i, this.getLieder().get(i).titel);
 		}
 		for(String iter: namen){
 			String tmp = iter;
@@ -123,7 +250,7 @@ public class Model {
 	public String checkLogin(Nutzer nu){
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		System.out.println("Model Logni: " +nu.getNn() + " | ");
+		System.out.println("Model Login: " +nu.getNn() + " | ");
 		try{
 			con = DB.getConnection();
 			String ss = "select * from nutzer where nn = ? and pw = ?;" ;
@@ -170,7 +297,6 @@ public class Model {
 	}
 
 	public String doSignIn(Nutzer nu){
-		Boolean success = false;
 		PreparedStatement ps = null;
 		if(nu.getNn() != null && nu.getNn() != "Gast"){	
 			try{
@@ -188,7 +314,6 @@ public class Model {
 				System.out.println("insert into nutzer(nn, pw) values ('" + nu.getNn() + "', '" + securePw(nu.getPw()) + "');");
 				ps.executeUpdate();
 				this.setNutzer(nu);
-				success = true;
 				System.out.println("Model signIn: " + this.getNutzername() );
 			}catch(SQLException e){
 				e.printStackTrace();
@@ -229,18 +354,6 @@ public class Model {
 	    return genPw;
 	}
 	
-	public static Model getInstance(){
-		if (instance == null) {
-			instance = new Model();
-		}
-		return instance;
-	}
-	
-	private Model(){
-//		deleteDB();
-		initDB();
-	}
-	
 	public Interpret showInterpretName(String name) {
 		Interpret i = null;
 		PreparedStatement ps = null;
@@ -275,6 +388,82 @@ public class Model {
 		}
 		return i;
 	}
+	
+	public ArrayList<Upload> getUploads(){
+		Statement s = null;
+		ResultSet rs = null;
+		ArrayList<Upload> uploads = new ArrayList<Upload>();
+		try{
+			con = DB.getConnection();
+			s = con.createStatement();
+			rs = s.executeQuery("select * from upload;");
+				while (rs.next())
+			    {
+					uploads.add( new Upload( rs.getInt("uploadID"), rs.getString("titel"), rs.getString("interpret"), rs.getString("link"), rs.getString("nutzer"), rs.getString("status") ) ); 
+			    }
+		}catch(SQLException e){
+			e.printStackTrace();
+			System.out.println("Fehler beim Upload Select");
+		}finally{
+			try{
+				if(rs != null){
+					rs.close();
+				}
+				if(s != null){
+					s.close();
+				}
+				if(con != null){
+					con.close();
+				}
+			}catch(SQLException ex){
+				ex.printStackTrace();
+			}
+		}
+		for(Upload iter : uploads){
+			System.out.println("Upload von: " + iter.nutzer);
+			System.out.println("Link: " + iter.link);
+			System.out.println("Status: " + iter.status);
+		}
+		return uploads;
+	}
+	public ArrayList<Kontakt> getKontakte(){
+		Statement s = null;
+		ResultSet rs = null;
+		ArrayList<Kontakt> kontakte = new ArrayList<Kontakt>();
+		try{
+			con = DB.getConnection();
+			s = con.createStatement();
+			rs = s.executeQuery("select * from Kontakt;");
+				while (rs.next())
+			    {
+					kontakte.add( new Kontakt( rs.getInt("kontaktID"), rs.getString("nutzer"), rs.getString("email"), rs.getString("nachricht"), rs.getString("art"), rs.getString("status") ) ); 
+			    }
+		}catch(SQLException e){
+			e.printStackTrace();
+			System.out.println("Fehler beim Kontakte Select");
+		}finally{
+			try{
+				if(rs != null){
+					rs.close();
+				}
+				if(s != null){
+					s.close();
+				}
+				if(con != null){
+					con.close();
+				}
+			}catch(SQLException ex){
+				ex.printStackTrace();
+			}
+		}
+		for(Kontakt iter : kontakte){
+			System.out.println("Name: " + iter.nutzer);
+			System.out.println("Nachricht: " + iter.nachricht);
+			System.out.println("Status: " + iter.status);
+		}
+		return kontakte;
+	}
+	
 	public ArrayList<Interpret> getInterpreten(){
 		Statement s = null;
 		ResultSet rs = null;
@@ -490,12 +679,28 @@ public class Model {
 			}
 		}
 	}
+	
+	public static Model getInstance(){
+		if (instance == null) {
+			instance = new Model();
+		}
+		return instance;
+	}
+	
+	private Model(){
+//		deleteDB();
+		initDB();
+	}
+	
 	public void deleteDB(){
 		deleteTable("kommentar");
 		deleteTable("lied");
 		deleteTable("interpret");
 		deleteTable("nutzer");
+		deleteTable("kontakt");
+		deleteTable("upload");
 	}
+	
 	public void initDB() {
 		Statement s = null;
 		ResultSet rs = null;
@@ -541,7 +746,7 @@ public class Model {
 				s.executeUpdate(createString);
 				System.out.println("Lieddaten erstellt");
 			}
-			rs.close();
+			rs.close();	
 			
 			rs = meta.getTables(null, null, "nutzer", null);
 			if(!rs.next()){
@@ -552,6 +757,7 @@ public class Model {
 		                " hobby string, " +
 		                " bild string " +
 		                ");" + 
+		                "insert into nutzer(nn, pw, name, hobby, bild) values ('Admin', '" + securePw("MusicSpotHtwg15") + "', 'Admin', 'Admin', 'Admin' );" +
 		                "insert into nutzer(nn, pw, name, hobby, bild) values ('DerGenosse', '" + securePw("123") + "', 'Alexander', 'Pumpen', '/assets/images/genosse.jpg' );" +
 						"insert into nutzer(nn, pw, name, hobby, bild) values ('Linserich', '" + securePw("234") + "', 'Matthias', 'Gammeln', '/assets/images/nuesse.jpg' );"; 
 				s.executeUpdate(createString);
@@ -573,6 +779,39 @@ public class Model {
 						"insert into kommentar(kommID, text, verfasser, lied) values (2, 'Big Up !', 'Linserich', 2);"; 
 				s.executeUpdate(createString);
 				System.out.println("Kommentardaten erstellt");
+			}
+			rs.close();
+			
+			rs = meta.getTables(null, null, "kontakt", null);
+			if(!rs.next()){
+				String createString = "create table kontakt" +
+		                "(kontaktID int primary key," +
+		                " nutzer string," + 
+		                " email string," +
+		                " nachricht int," +
+		                " art string," +
+		                " status string" +
+		                ");" +
+		                "insert into kontakt(kontaktID, nutzer, email, nachricht, art, status) values (1, 'default', 'default', 'default', 'default', 'default');";
+		                
+				s.executeUpdate(createString);
+				System.out.println("Kontakttabelle erstellt");
+			}
+			rs.close();
+			
+			rs = meta.getTables(null, null, "upload", null);
+			if(!rs.next()){
+				String createString = "create table upload" +
+		                "(uploadID int primary key," +
+		                " titel string," + 
+		                " interpret string," +
+		                " link int," +
+		                " nutzer string," +
+		                " status string" +
+		                ");" +
+		                "insert into upload(uploadID, titel, interpret, link, nutzer, status) values (1, 'default', 'default', 'default', 'default', 'default');";	
+				s.executeUpdate(createString);
+				System.out.println("Uploadtabelle erstellt");
 			}
 			rs.close();
 			
@@ -604,4 +843,5 @@ public class Model {
 		}
 	}
 		
+//	SELECT name FROM sqlite_master WHERE type='table' ORDER BY name;
 }

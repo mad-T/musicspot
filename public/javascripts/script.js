@@ -75,15 +75,12 @@ $(document).ready(function(){
 				htmlcode += "</ul>";
 				$("#contactPanel").html(htmlcode);
 			}
-			
 		});			
 	}
 );
 	$("#indexButton").click(function(){
 		$("#index").fadeOut("slow");
 	});
-	
-	
 });
 
 function comment(){
@@ -113,7 +110,7 @@ function suche(){
 	req.onreadystatechange = function(){
 		if ( req.readyState == 4 ) {
 			if ( req.status == 200 ) {
-				var erg = req.responseText;
+				var erg = "<a class='link' href='/lied/?lied="+req.responseText+"'>"+req.responseText+"</a>";
 				document.getElementById("out").innerHTML = erg;
 			}
 		}

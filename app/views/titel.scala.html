@@ -1,5 +1,5 @@
 @(name: String)(lieder: java.util.ArrayList[models.Lied])(suchErg: String)
-@main("Music")(name){
+@main("Lied")(name){
 	<meta charset="utf-8">
 			  			<div class="col-md-2" id="leftCol">
 							<div class="well new"> 
@@ -29,10 +29,11 @@
 				      							<td>@lied.interpret</td>
 				      							<td>@lied.genre</td>
 				      							<td>@lied.dauer</td>
-				      							<td><audio controls>
-				      								<source src='@lied.pfad' type='audio/mpeg'>
-				      								<source src='@lied.pfad' type='audio/ogg'>
-				      								<a href="@lied.pfad">Link</a>
+				      							<td>
+				      								<audio style='width:100%' controls>
+					      								<source src='@lied.pfad' type='audio/mpeg'>
+					      								<source src='@lied.pfad' type='audio/ogg'>
+					      								<a href="@lied.pfad">Link</a>
 				      								</audio>
 				      							</td>
 				      						</tr>

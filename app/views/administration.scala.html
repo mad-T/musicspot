@@ -1,0 +1,65 @@
+@(name: String)(kontakte: java.util.ArrayList[models.Kontakt])(uploads: java.util.ArrayList[models.Upload])
+@main("Administration")(name){
+	<meta charset="utf-8">
+			  			
+			      		<div class="col-md-12">
+			      			<!-- CONTENT Panel -->
+		                 	<div class="panel panel-default">
+		                    	
+			      				<div class='panel-body'>
+			      					<table class='table table-bordered'>
+			      						<tr>
+			      							<th>Kontaktformular#</th>
+			      							<th>Nutzer</th>
+			      							<th>Email</th>
+			      							<th>Nachricht</th>
+			      							<th>Art</th>
+			      							<th>Status</th>
+			      						</tr>
+	      								@for(kontakt <- kontakte){
+				      						<tr>
+				      							<td>@kontakt.kontaktID</td>
+				      							<td>@kontakt.nutzer</td>
+				      							<td>@kontakt.email</td>
+				      							<td>@kontakt.nachricht</td>
+				      							<td>@kontakt.art</td>
+				      							<td>@kontakt.status</td>
+				      							<td>
+				      								<a class='link' href='/removeK/?kid=@kontakt.kontaktID'>Löschen</a>			
+						      				    </td>
+				      						</tr>
+			      						}
+			      					</table>
+			      				</div>
+			      				
+			      				
+
+
+			      				<div class='panel-body'>
+			      					<table class='table table-bordered'>
+			      						<tr>
+			      							<th>Uploadvorschlag#</th>
+			      							<th>Titel</th>
+			      							<th>Interpret</th>
+			      							<th>Link</th>
+			      							<th>Nutzer</th>
+			      							<th>Status</th>
+			      						</tr>
+	      								@for(upload <- uploads){
+				      						<tr>
+				      							<td>@upload.uploadID</td>
+				      							<td>@upload.titel</td>
+				      							<td>@upload.interpret</td>
+				      							<td>@upload.link</td>
+				      							<td>@upload.nutzer</td>
+				      							<td>@upload.status</td>
+				      							<td>
+				      								<a class='link' href='/removeU/?uid=@upload.uploadID'>Löschen</a>
+				      							</td>
+				      						</tr>
+			      						}
+			      					</table>
+			      				</div>
+			      			</div>
+			      		</div>  
+}

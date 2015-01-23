@@ -1,6 +1,6 @@
 @(name: String)(editForm: Form[models.Nutzer])
 @import helper._
-@main("News")(name){
+@main("Edit")(name){
 	<meta charset="utf-8">
 			  			<div class="col-md-2" id="leftCol">
 							<div class="well new"> 
@@ -19,7 +19,7 @@
 											    </div>
 										       		</br>
 										       	<div class="form-group fb">
-										       		@helper.inputText(editForm("pw"), '_label->"Neues Passwort", '_id->"pw")
+										       		@helper.inputPassword(editForm("pw"), '_label->"Neues Passwort", '_id->"pw")
 										       	</div>
 										       		</br>
 										       	<div class="form-group fb">

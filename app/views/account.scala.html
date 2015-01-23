@@ -1,5 +1,5 @@
 @(name: String)(nutzer: Nutzer)
-@main("account")(name){
+@main("Account")(name){
 	<meta charset="utf-8">
 		
 			  			<div class="col-md-2" id="leftCol">
@@ -7,6 +7,9 @@
 				              	<ul class="nav nav-stacked" id="sidebar">
 				                  <li><a class="linktext" id="ButtonProfil" href="/account">Profil</a></li>
 								  <li><a class="linktext" id="ButtonUploads" href="#">Uploads</a></li>
+								  @if(name.equals("Admin")){
+								  <li><a class="linktext" id="admini" href="/administration">Administration</a></li>
+								  }
 				              	</ul>
 			  				</div>
 			      		</div>  
@@ -27,7 +30,7 @@
 												+	"</div>"
 												
 								var panelB = 		"<h4>Uploadvorschlag?<br/> Immer her damit unsere Redaktion wird diesen bearbeiten und ggf. auf Musicspot hochladen</h4>"
-												+	"<form role='form' action='http://www.htwg-konstanz.de'>"
+												+	"<form role='form' method='post' action='/uploaden' enctype='multipart/form-data'>"
 												+	"<div class='form-group'>"
 												+	"<label for='titel'>Songtitel:</label>"
 												+	"<input class='form-control' type='text' name='titel' placeholder='Hier den Titel des Liedes eingeben'"
@@ -35,10 +38,6 @@
 												+	"<div class='form-group'>"
 												+	"<label for='interpret'>Interpret:</label>"
 												+	"<input class='form-control' type='text' name='interpret' placeholder='Hier den Interpret des Liedes eingeben'"
-												+	"</div>"
-												+	"<div class='form-group'>"
-												+	"<label for='genre'>Genre:</label>"
-												+	"<select class='form-control' name='Genre'><option value='hiphop'>HipHop</option><option value='raggea'>Raggea</option><option value='house'>House</option></select>"
 												+	"</div>"
 												+	"<div class='form-group'>"
 												+	"<label for='link'>Link:</label>"

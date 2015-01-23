@@ -22,6 +22,11 @@ GET 	/assets.javascript.ws.js	controllers.Application.wsJs()
 GET 	/kommentar 					controllers.Application.kommentar()
 GET		/lied/						controllers.Application.lied(lied)
 GET		/titel						controllers.Application.titel()
+POST	/kontaktieren				controllers.Application.kontaktieren()
+POST	/uploaden					controllers.Application.uploaden()
+GET		/administration				controllers.Application.administration()
+GET		/removeK/					controllers.Application.removeKontakt(kid:Integer)
+GET		/removeU/					controllers.Application.removeUpload(uid:Integer)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

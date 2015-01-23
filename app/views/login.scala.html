@@ -1,6 +1,6 @@
 @(name: String)(loginForm: Form[models.Nutzer])
 @import helper._
-@main("login")(name) {
+@main("Login")(name) {
 	<meta charset="utf-8">
 		<div class="col-md-2" id="leftCol">
 			<div class="well new"> 
@@ -19,7 +19,7 @@
 						       	</div>
 						       	</br>
 						       	<div class="form-group fb">
-						       		@helper.inputText(loginForm("pw"), '_label->"Passwort", '_id->"pw")
+						       		@helper.inputPassword(loginForm("pw"), '_label->"Passwort", '_id->"pw")
 						       	</div>
 						       	<div class="actions fb">
 						       		<button type="submit" class="btn btn-inverse pull-right">Login</button>
