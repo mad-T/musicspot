@@ -11,3 +11,5 @@ Insgesamt müsste auch noch das komplette Design überarbeitet werden.
 Wir haben während der Projektarbeit sehr viele neue Technologien kennengelernt und viel dabei gelernt. Das eigenständige Erstellen einer Webapplication von der Idee auf hat uns sehr gefallen. Allerdings würden wir beim nächsten Mal unsere Schritte vorher genauer planen und uns unsere Zeit besser aufteilen. Zudem war die Arbeitsaufteilung innerhalb des Teams ziemlich einseitig.
 Auch wenn wir es nicht geschafft haben alle unserer Ideen umzusetzen, so haben wir doch viele unserer Ziele erreicht. Während des gesamten Projekts haben wir sehr viel mitgenommen und wir hätten gern mehr solcher Projekte während unseres Studiengangs.
 
+
+Vorherige Seite: [Technologien](/Docu/Technologien.md) | Wieder zum Anfang: [Gliederung](/README.md)
