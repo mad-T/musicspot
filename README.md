@@ -10,3 +10,7 @@ Die Dokumentation ist gegliedert in:
 + [Erster Entwurf](Docu/Idee_Entwurf.md)
 + [Anforderungen](Docu/Anforderungen.md)
 + [Architektur](Docu/Architektur.md)
++ [Technologien](Docu/Technologien.md)
++ [Fazit](Docu/Fazit.md)
+
+Nächste Seite: [Erster Entwurf](Docu/Idee_Entwurf.md)
