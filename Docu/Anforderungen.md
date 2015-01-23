@@ -17,3 +17,6 @@ Zunächst sollten alle User der Seite Neuigkeiten über die Undergroundszene der
 •	Sicherheit durch Verschlüsselung
 
 •	Kundenfreundlichkeit durch Kontaktformular und FAQ
+
+
+Vorherige Seite: [Erster Entwurf](/Docu/Idee_Entwurf.md) | Nächste Seite: [Architektur](/Docu/Architektur.md)
