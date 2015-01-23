@@ -12,3 +12,7 @@ Insgesamt konnten die anfangs erstellten Mockups sehr gut umgesetzt werden, alle
 ### Musik/Titelansicht
 
 ![1.Musik.png](/Docu/2.Music.PNG)
+
+### Songansicht
+
+![1.Titel.png](/Docu/3.Music_player.PNG)
