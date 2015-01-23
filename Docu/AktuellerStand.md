@@ -2,11 +2,11 @@
 
 ## Funktionen der Webseite:
 
-### News:
+#### News:
 
 •	News anzeigen
 
-### Musik:
+#### Musik:
 
 •	Titel anhören
 
@@ -17,7 +17,7 @@
 •	Video ansehen
 
 
-### Benutzer:
+#### Benutzer:
 
 •	Registrieren
 
@@ -39,7 +39,7 @@
 
 •	Kontaktformulare einsehen
 
-### Sonstiges
+#### Sonstiges
 
 •	Aboutseite
 
