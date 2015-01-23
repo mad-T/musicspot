@@ -1,11 +1,49 @@
-# Architektur
+# Verwendete Technologien
 
-Nach dem Modell des „Model-View-Controllers“ (siehe Abbildung) ist die Architektur der Webseite aufgebaut.
+## Für das Layout und Design:
 
-## Model-View-Controller:
+### HTML5
+Strukturdefinition der Seite und Verwendung von integrierten Features wie beispielsweise dem Audioplayer.
 
-![1.Model.png](/Docu/mvc-diagram1.png)
+### Bootstrap
 
-Die View beinhaltet hierbei alle HTML-Seiten, also das was schlussendlich im Browser des Users dargestellt wird. Im Model hingegen befindet sich die gesamte Logik der Seite. Das Model verwaltet unteranderem auch die Datenbank. Wird eine Funktion der Seite in Anspruch genommen, ruft der Controller(in dem Fall die Application-Klasse )die entsprechende Methode im Model auf und der Controller liefert dann das Ergebnis zurück an die View.
+Um das responsive Design zu gewährleisten, wurde Bootstrap und die darin enthaltenen Klassen verwendet. Der Content wurde dabei in sogenannte Panels gesetzt.
 
-![1.Klassendiagramm.png](Kontakt)
+### CSS
+
+Wurde verwendet um das Design der Seite individuell anzupassen und Bootstrapklassen zu ergänzen.
+
+
+## Funktionsweise
+
+### JavaScript
+
+Damit wurden an mancher Stelle Effekte wie den FadeIn der Unterseiten implementiert.
+
+### AJAX + JQuery
+
+Mit Hilfe von AJAX + JQuery wurden auf manchen Seiten die Unterseiten nachgeladen und die Contentpanel ersetzt.
+
+### AJAX + JSON:
+
+Für das FAQ wurden Fragen und Antworten in einer JSON-Datei gespeichert und mit Hilfe einer AJAX-Funktion ausgelesen.
+
+### Websockets:
+
+Für die automatische Aktualisierung abgegebener Kommentare auf sämtlichen Views wurden Websockets implementiert.
+
+### SQLite:
+
+Wurde als Datenbankbackend eingesetzt
+
+### JDBC:
+
+Zur Implementierung und für den Zugriff der Datenbank.
+
+### Scala:
+
+Um auf die in Java-Objekte konvertierten Datenbank-Daten zuzugreifen.
+
+
+
+
