@@ -20,3 +20,6 @@ Insgesamt konnten die anfangs erstellten Mockups sehr gut umgesetzt werden, alle
 ### Account
 
 ![4.Account.png](/Docu/4.Account.PNG)
+
+
+Vorherige Seite: [Gliederung](README.md) | Nächste Seite: [Anforderungen](Docu/Anforderungen.md)
