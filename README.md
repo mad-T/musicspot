@@ -1,5 +1,6 @@
 # MusicSpot
 http://htwgmusicspot.herokuapp.com
+Anmerkung: Unter Heroku werden manche Bilder nicht dargestellt. Stattdessen steht der Alternativ-Tag da.
 
 ## Was ist MusicSpot?
 
