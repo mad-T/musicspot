@@ -1,4 +1,5 @@
-# MusicSpot (http://htwgmusicspot.herokuapp.com)
+# MusicSpot
+(http://htwgmusicspot.herokuapp.com)
 
 ## Was ist MusicSpot?
 
