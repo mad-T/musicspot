@@ -9,6 +9,8 @@ Strukturdefinition der Seite und Verwendung von integrierten Features wie beispi
 
 Um das responsive Design zu gewährleisten, wurde Bootstrap und die darin enthaltenen Klassen verwendet. Der Content wurde dabei in sogenannte Panels gesetzt.
 
+![1.responsive.png](/Docu/responsive.PNG)
+
 ### CSS
 
 Wurde verwendet um das Design der Seite individuell anzupassen und Bootstrapklassen zu ergänzen.
@@ -28,9 +30,14 @@ Mit Hilfe von AJAX + JQuery wurden auf manchen Seiten die Unterseiten nachgelade
 
 Für das FAQ wurden Fragen und Antworten in einer JSON-Datei gespeichert und mit Hilfe einer AJAX-Funktion ausgelesen.
 
+![1.json.png](/Docu/json2.PNG)
+![2.json2.png](/Docu/json.PNG)
+
 ### Websockets:
 
 Für die automatische Aktualisierung abgegebener Kommentare auf sämtlichen Views wurden Websockets implementiert.
+
+![1.websockets.png](/Docu/websockets.PNG)
 
 ### SQLite:
 
@@ -43,6 +50,10 @@ Zur Implementierung und für den Zugriff der Datenbank.
 ### Scala:
 
 Um auf die in Java-Objekte konvertierten Datenbank-Daten zuzugreifen.
+
+![1.scala.png](/Docu/scala2.PNG)
+![2.scala.png](/Docu/scala.PNG)
+![3.scala.png](/Docu/datenbankscala.PNG)
 
 
 
