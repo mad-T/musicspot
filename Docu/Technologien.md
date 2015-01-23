@@ -57,4 +57,4 @@ Um auf die in Java-Objekte konvertierten Datenbank-Daten zuzugreifen.
 
 
 
-
+Vorherige Seite: [Erster Entwurf](/Docu/Idee_Entwurf.md) | Nächste Seite: [Architektur](/Docu/Architektur.md)
