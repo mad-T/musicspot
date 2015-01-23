@@ -11,6 +11,6 @@ Die Dokumentation ist gegliedert in:
 + [Anforderungen](Docu/Anforderungen.md)
 + [Architektur](Docu/Architektur.md)
 + [Technologien](Docu/Technologien.md)
-+ [Blick in die Zukunft/Fazit](Docu/Fazit.md)
++ [Fazit](Docu/Fazit.md)
 
 Nächste Seite: [Erster Entwurf](Docu/Idee_Entwurf.md)
