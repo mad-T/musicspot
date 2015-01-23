@@ -8,3 +8,7 @@ Insgesamt konnten die anfangs erstellten Mockups sehr gut umgesetzt werden, alle
 ### News
 
 ![1.News.png](/Docu/1.News.PNG)
+
+### Musik/Titelansicht
+
+![1.Musik.png](/Docu/2.Music.PNG)
