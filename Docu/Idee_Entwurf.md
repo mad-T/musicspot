@@ -7,4 +7,4 @@ Insgesamt konnten die anfangs erstellten Mockups sehr gut umgesetzt werden, alle
 
 ### News
 
-![Use-Case](Docu/1.News.png)
+![Use-Case](/Docu/1.News.png)
